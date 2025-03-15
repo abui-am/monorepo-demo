@@ -1,21 +1,21 @@
 {
-  "name": "@repo/ui",
+  "name": "@repo/ui-build",
   "version": "0.0.0",
-  "sideEffects": [
-    "**/*.css"
-  ],
   "files": [
     "dist"
   ],
   "exports": {
     "./styles.css": "./dist/index.css",
-    "./*": "./src/*.tsx"
+    "./card": {
+      "types": "./dist/card.d.ts",
+      "default": "./dist/card.js"
+    }
   },
   "license": "MIT",
   "scripts": {
-    "build": "tailwindcss -i ./src/styles.css -o ./dist/index.css",
+    "build": "tailwindcss -i ./src/styles.css -o ./dist/index.css && tsc",
     "check-types": "tsc --noEmit",
-    "dev": "tailwindcss -i ./src/styles.css -o ./dist/index.css --watch",
+    "dev": "tsc --watch & tailwindcss -i ./src/styles.css -o ./dist/index.css --watch",
     "lint": "eslint src --max-warnings 0"
   },
   "peerDependencies": {
