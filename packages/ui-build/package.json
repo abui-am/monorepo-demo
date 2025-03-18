@@ -6,9 +6,9 @@
   ],
   "exports": {
     "./styles.css": "./dist/index.css",
-    "./card": {
-      "types": "./dist/card.d.ts",
-      "default": "./dist/card.js"
+    "./*": {
+      "types": "./src/*/index.tsx",
+      "default": "./dist/*/index.js"
     }
   },
   "license": "MIT",
